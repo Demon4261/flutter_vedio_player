@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'colors.dart' as color;
 
@@ -172,12 +175,94 @@ class HomePage extends StatelessWidget {
                                 color: color.AppColor.homePageContainerTextBig,
                                 size: 60,
                               ),
-                            )
+                            ),
                           ],
                         )
                       ],
                     ),
-                  ))
+                  )),
+              const SizedBox(
+                height: 5,
+              ),
+              Stack(children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.only(top: 20),
+                  height: 120,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: const DecorationImage(
+                        image: AssetImage("assets/card.jpg"),
+                        fit: BoxFit.fill,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: color.AppColor.gradientSecond.withOpacity(0.3),
+                          offset: const Offset(8, 10),
+                          blurRadius: 20.0,
+                        ),
+                        BoxShadow(
+                          color: color.AppColor.gradientSecond.withOpacity(0.3),
+                          offset: const Offset(-1, -5),
+                          blurRadius: 10,
+                        )
+                      ]),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 135,
+                  margin: const EdgeInsets.only(bottom: 30, right: 180),
+                  decoration: BoxDecoration(
+                    // color: Colors.redAccent.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(20),
+                    image: const DecorationImage(
+                      image: AssetImage("assets/figure.png"),
+                      // fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 100,
+                  width: double.infinity,
+                  // color: Colors.redAccent.withOpacity(0.3),
+                  margin: const EdgeInsets.only(top: 43, bottom: 30, left: 133),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "You are doing great",
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            color: color.AppColor.homePageDetail),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      RichText(
+                          text: TextSpan(
+                              text: "Keep it up\n",
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: color.AppColor.homePagePlanColor),
+                              children: const [
+                            TextSpan(text: "stick to your plan")
+                          ]))
+                    ],
+                  ),
+                )
+              ]),
+              Row(
+                children: [
+                  Text(
+                    "Area of focus",
+                    style: TextStyle(
+                        color: color.AppColor.homePageTitle,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500),
+                  )
+                ],
+              )
             ],
           )),
     );
