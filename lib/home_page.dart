@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_vedio_player/info_page.dart';
+import 'package:get/get.dart';
 import 'colors.dart' as color;
 
 class HomePage extends StatefulWidget {
@@ -90,10 +92,15 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(
                     width: 5,
                   ),
-                  Icon(
-                    Icons.arrow_forward,
-                    size: 20,
-                    color: color.AppColor.homePageIcons,
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => VedioInfo());
+                    },
+                    child: Icon(
+                      Icons.arrow_forward,
+                      size: 20,
+                      color: color.AppColor.homePageIcons,
+                    ),
                   )
                 ],
               ),

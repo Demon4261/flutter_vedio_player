@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_vedio_player/home_page.dart';
+import 'package:get/get.dart';
 import 'colors.dart' as color;
 
 class VedioInfo extends StatefulWidget {
@@ -12,7 +14,6 @@ class VedioInfo extends StatefulWidget {
 }
 
 class _VedioInfoState extends State<VedioInfo> {
-
   @override
   void initState() {
     super.initState();
@@ -27,7 +28,7 @@ class _VedioInfoState extends State<VedioInfo> {
             });
   }
 
-   List info = [];
+  List info = [];
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +54,15 @@ class _VedioInfoState extends State<VedioInfo> {
               children: [
                 Row(
                   children: [
-                    Icon(
-                      Icons.arrow_back_ios,
-                      size: 20,
-                      color: color.AppColor.secondPageIconColor,
+                    InkWell(
+                      onTap: () {
+                        Get.to(() => HomePage());
+                      },
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        size: 20,
+                        color: color.AppColor.secondPageIconColor,
+                      ),
                     ),
                     Expanded(child: Container()),
                     Icon(
