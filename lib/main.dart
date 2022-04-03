@@ -10,10 +10,10 @@ void main(List<String> args) {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Flutter fit",
-      home: HomePage(),
+      home: VedioInfo(),
     );
   }
 }
