@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_vedio_player/home_page.dart';
+import 'package:flutter_vedio_player/screens/home_page.dart';
 import 'package:get/get.dart';
-import 'colors.dart' as color;
+import '../material/colors.dart' as color;
 
 class VedioInfo extends StatefulWidget {
   const VedioInfo({Key? key}) : super(key: key);
@@ -24,7 +24,9 @@ class _VedioInfoState extends State<VedioInfo> {
     await DefaultAssetBundle.of(context)
         .loadString("json/videoinfo.json")
         .then((value) => {
-              vedioInfo = json.decode(value),
+              setState(() {
+                vedioInfo = json.decode(value);
+              })
             });
   }
 

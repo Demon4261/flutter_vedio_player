@@ -1,11 +1,13 @@
 import 'dart:convert';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_vedio_player/info_page.dart';
+import 'package:flutter_vedio_player/screens/info_page.dart';
 import 'package:get/get.dart';
-import 'colors.dart' as color;
+import '../material/colors.dart' as color;
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -17,11 +19,13 @@ class _HomePageState extends State<HomePage> {
     _initData();
   }
 
-  _initData() {
-    DefaultAssetBundle.of(context)
+  _initData() async {
+    await DefaultAssetBundle.of(context)
         .loadString("json/info.json")
         .then((value) => {
-              info = json.decode(value),
+              setState(() {
+                info = json.decode(value);
+              })
             });
   }
 
